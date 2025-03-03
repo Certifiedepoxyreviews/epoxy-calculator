@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epoxy Calculator</title>
+    <script>
+        function calculateSurfaceEpoxy() {
+            let length = parseFloat(document.getElementById("lengthFeet").value) || 0;
+            let width = parseFloat(document.getElementById("widthFeet").value) || 0;
+            let squareFeet = length * width;
+            let gallons = squareFeet / 20;
+            document.getElementById("surfaceResult").innerHTML = `Square Feet: ${squareFeet.toFixed(2)}<br>Gallons Needed: ${gallons.toFixed(2)}`;
+        }
+        
+        function calculateVolumeEpoxy() {
+            let length = parseFloat(document.getElementById("lengthInches").value) || 0;
+            let width = parseFloat(document.getElementById("widthInches").value) || 0;
+            let depth = parseFloat(document.getElementById("depthInches").value) || 0;
+            let volume = (length * width * depth) / 231;
+            let ounces = volume * 128;
+            document.getElementById("volumeResult").innerHTML = `US Fluid Ounces Needed: ${ounces.toFixed(2)}<br>Gallons Needed: ${volume.toFixed(2)}`;
+        }
+    </script>
+</head>
+<body>
+    <h2>Epoxy Surface Calculator</h2>
+    <label>Length (feet):</label>
+    <input type="number" id="lengthFeet">
+    <label>Width (feet):</label>
+    <input type="number" id="widthFeet">
+    <button onclick="calculateSurfaceEpoxy()">Calculate</button>
+    <p id="surfaceResult">Square Feet: 0<br>Gallons Needed: 0</p>
+
+    <h2>Epoxy Volume Calculator</h2>
+    <label>Length (inches):</label>
+    <input type="number" id="lengthInches">
+    <label>Width (inches):</label>
+    <input type="number" id="widthInches">
+    <label>Depth (inches):</label>
+    <input type="number" id="depthInches">
+    <button onclick="calculateVolumeEpoxy()">Calculate</button>
+    <p id="volumeResult">US Fluid Ounces Needed: 0<br>Gallons Needed: 0</p>
+</body>
+</html>
